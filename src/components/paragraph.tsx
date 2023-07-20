@@ -5,10 +5,11 @@ import styled from 'styled-components'
 export type Props = {
   children: string
   tipo?: 'principal' | 'secundario'
+  fontSize?: number
 }
 
-const P = styled.p<Props>`
-  font-size: 14px;
+export const P = styled.p<Props>`
+  font-size: ${(props) => (props.fontSize ? props.fontSize + 'px' : '14px')};
   color: ${(props) => (props.tipo === 'principal' ? '#282a35' : '#949494')};
   line-height: 22px;
 
@@ -18,8 +19,10 @@ const P = styled.p<Props>`
 `
 // Template
 
-const Paragrafo = ({ children, tipo = 'principal' }: Props) => (
-  <P tipo={tipo}>{children}</P>
+const Paragrafo = ({ children, tipo = 'principal', fontSize }: Props) => (
+  <P fontSize={fontSize} tipo={tipo}>
+    {children}
+  </P>
 )
 
 export default Paragrafo
