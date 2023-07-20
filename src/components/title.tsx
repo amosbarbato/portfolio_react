@@ -1,8 +1,12 @@
 import styled from 'styled-components'
 
-import { Props } from '.'
+// Styled Components
+type Props = {
+  children: string
+  fontSize?: number
+}
 
-export const Title = styled.h3<Props>`
+const TitleStyle = styled.h3<Props>`
   color: ${(props) => props.theme.corPrincipal};
   font-size: ${(props) => (props.fontSize ? props.fontSize + 'px' : '14px')};
   font-weight: bold;
@@ -12,3 +16,10 @@ export const Title = styled.h3<Props>`
     text-align: center;
   }
 `
+
+// Template
+const Title = (props: Props) => (
+  <TitleStyle fontSize={props.fontSize}>{props.children}</TitleStyle>
+)
+
+export default Title

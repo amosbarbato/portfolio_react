@@ -1,7 +1,22 @@
-import Title from '../../components/title'
-import Paragrafo from '../../components/paragrafo'
-import { GitSection } from './styles'
+import Title from '../components/title'
+import Paragrafo from '../components/paragraph'
+import styled from 'styled-components'
 
+// Styled Components
+const GitSection = styled.div`
+  margin-top: 32px;
+  margin-bottom: 64px;
+
+  img {
+    height: 157px;
+
+    @media (max-width: 768px) {
+      height: auto;
+    }
+  }
+`
+
+// Template
 const about = () => (
   <section>
     <Title fontSize={16}>Sobre mim</Title>
